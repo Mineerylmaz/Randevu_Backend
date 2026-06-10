@@ -69,6 +69,7 @@ router.get("/:slug", async (req, res) => {
             [biz.id, limit]
         );
 
+        console.log(rows[0]);
         const experts = rows.map((p) => ({
             id: p.id,
             name: p.ad_soyad,
