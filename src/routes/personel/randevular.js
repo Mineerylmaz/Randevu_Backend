@@ -526,13 +526,13 @@ router.post(
 
             await pool.query(
                 `
-        UPDATE personeller
-        SET foto_url = ?
-        WHERE kullanici_id = ?
-  AND isletme_id = ?
-  AND deleted_at IS NULL
-        `,
-                [fotoUrl, req.user.id]
+  UPDATE personeller
+  SET foto_url = ?
+  WHERE kullanici_id = ?
+    AND isletme_id = ?
+    AND deleted_at IS NULL
+  `,
+                [fotoUrl, req.user.id, req.user.isletme_id]
             );
 
             res.json({
